@@ -2,6 +2,7 @@ import React from 'react';
 
 import './ItemsList.css'
 import SwapiService from '../../services/SwapiService';
+import Loader from '../Loader';
 
 export default class ItemsList extends React.Component {
 
@@ -19,19 +20,33 @@ export default class ItemsList extends React.Component {
         });
     }
 
+    renderItems(arr) {
+        return arr.map((item) => {
+            return (
+                <li
+                    className="list-group-item"
+                    key={item.id}
+                    onClick={() => this.props.onItemClick(item.id)}
+                >
+                    {item.name}
+                </li> 
+            );
+        });
+    }
+
     render() {
-        console.log(this.state.people);
+        
+        const { people } = this.state;
+
+        if(!people) {
+            return <Loader />
+        }
+
+        const items = this.renderItems(people);
+
         return(
             <ul className="ItemsList">
-                <li>
-                    First preson
-                </li>
-                <li>
-                    Second preson
-                </li>
-                <li>
-                    Third preson
-                </li>
+                {items}
             </ul>
         );
     }
