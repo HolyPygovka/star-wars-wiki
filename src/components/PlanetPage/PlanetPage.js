@@ -7,7 +7,7 @@ import ErrorComponent from '../ErrorComponent';
 import SwapiService from '../../services/SwapiService';
 import Row from '../Row';
 
-export default class PeoplePage extends React.Component {
+export default class PlanetPage extends React.Component {
 
     swapi = new SwapiService();
 
@@ -36,7 +36,7 @@ export default class PeoplePage extends React.Component {
                 onItemClick={this.onPersonSelect}
                 renderItem={(item) =>
                     `${item.name}
-                        (${item.gender}, ${item.mass}kg)`
+                        (${item.diameter})`
                 }
             />
         );
@@ -48,7 +48,7 @@ export default class PeoplePage extends React.Component {
         );
 
         return (
-            <div className="PeoplePage">
+            <div className="PlanetPage">
                <Row left={itemsList} right={detailsInfo} />
             </div>
         )
