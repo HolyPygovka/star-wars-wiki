@@ -2,7 +2,7 @@ import React from 'react';
 import ItemsList from '../ItemsList';
 import DetailsInfo from '../DetailsInfo';
 
-import './PeoplePage.css'
+import './PlanetPage.css'
 import ErrorComponent from '../ErrorComponent';
 import SwapiService from '../../services/SwapiService';
 import Row from '../Row';
